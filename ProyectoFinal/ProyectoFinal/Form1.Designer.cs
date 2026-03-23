@@ -124,6 +124,7 @@
             btnEliminarPais.TabIndex = 2;
             btnEliminarPais.Text = "Eliminar";
             btnEliminarPais.UseVisualStyleBackColor = false;
+            btnEliminarPais.Click += btnEliminarPais_Click;
             // 
             // label2
             // 
@@ -212,7 +213,7 @@
             // groupBox4
             // 
             groupBox4.Controls.Add(dgv_Pais);
-            groupBox4.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            groupBox4.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             groupBox4.ForeColor = Color.Black;
             groupBox4.Location = new Point(12, 414);
             groupBox4.Name = "groupBox4";
@@ -224,7 +225,7 @@
             // dgv_Pais
             // 
             dgv_Pais.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgv_Pais.Location = new Point(104, 19);
+            dgv_Pais.Location = new Point(106, 19);
             dgv_Pais.Name = "dgv_Pais";
             dgv_Pais.RowHeadersWidth = 51;
             dgv_Pais.Size = new Size(1058, 298);
