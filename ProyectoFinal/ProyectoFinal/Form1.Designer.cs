@@ -29,26 +29,30 @@
         private void InitializeComponent()
         {
             groupBox1 = new GroupBox();
-            txt_Pais = new TextBox();
-            label1 = new Label();
             btnAgregarPais = new Button();
+            label1 = new Label();
+            txt_Pais = new TextBox();
             groupBox2 = new GroupBox();
             btnEliminarPais = new Button();
             label2 = new Label();
             txtEliminarPais = new TextBox();
             groupBox3 = new GroupBox();
+            label4 = new Label();
+            txtActualizarIDP = new TextBox();
             btnActualizarP = new Button();
             label3 = new Label();
             txtNombreActualizarP = new TextBox();
-            label4 = new Label();
-            txtActualizarIDP = new TextBox();
             groupBox4 = new GroupBox();
-            dgvPais = new DataGridView();
+            dgv_Pais = new DataGridView();
+            label5 = new Label();
+            label6 = new Label();
+            panel1 = new Panel();
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
             groupBox3.SuspendLayout();
             groupBox4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dgvPais).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dgv_Pais).BeginInit();
+            panel1.SuspendLayout();
             SuspendLayout();
             // 
             // groupBox1
@@ -58,20 +62,24 @@
             groupBox1.Controls.Add(txt_Pais);
             groupBox1.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             groupBox1.ForeColor = Color.White;
-            groupBox1.Location = new Point(12, 12);
+            groupBox1.Location = new Point(12, 177);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(387, 201);
+            groupBox1.Size = new Size(405, 201);
             groupBox1.TabIndex = 0;
             groupBox1.TabStop = false;
             groupBox1.Text = "Insert";
             // 
-            // txt_Pais
+            // btnAgregarPais
             // 
-            txt_Pais.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            txt_Pais.Location = new Point(148, 41);
-            txt_Pais.Name = "txt_Pais";
-            txt_Pais.Size = new Size(204, 30);
-            txt_Pais.TabIndex = 0;
+            btnAgregarPais.BackColor = Color.DarkGreen;
+            btnAgregarPais.ForeColor = Color.White;
+            btnAgregarPais.Location = new Point(109, 111);
+            btnAgregarPais.Name = "btnAgregarPais";
+            btnAgregarPais.Size = new Size(144, 57);
+            btnAgregarPais.TabIndex = 2;
+            btnAgregarPais.Text = "Agregar";
+            btnAgregarPais.UseVisualStyleBackColor = false;
+            btnAgregarPais.Click += btnAgregarPais_Click;
             // 
             // label1
             // 
@@ -84,16 +92,13 @@
             label1.TabIndex = 1;
             label1.Text = "Nombre Pais:";
             // 
-            // btnAgregarPais
+            // txt_Pais
             // 
-            btnAgregarPais.BackColor = Color.DarkGreen;
-            btnAgregarPais.ForeColor = Color.White;
-            btnAgregarPais.Location = new Point(109, 111);
-            btnAgregarPais.Name = "btnAgregarPais";
-            btnAgregarPais.Size = new Size(144, 57);
-            btnAgregarPais.TabIndex = 2;
-            btnAgregarPais.Text = "Agregar";
-            btnAgregarPais.UseVisualStyleBackColor = false;
+            txt_Pais.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            txt_Pais.Location = new Point(148, 41);
+            txt_Pais.Name = "txt_Pais";
+            txt_Pais.Size = new Size(231, 30);
+            txt_Pais.TabIndex = 0;
             // 
             // groupBox2
             // 
@@ -102,7 +107,7 @@
             groupBox2.Controls.Add(txtEliminarPais);
             groupBox2.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             groupBox2.ForeColor = Color.White;
-            groupBox2.Location = new Point(464, 12);
+            groupBox2.Location = new Point(464, 177);
             groupBox2.Name = "groupBox2";
             groupBox2.Size = new Size(332, 201);
             groupBox2.TabIndex = 1;
@@ -148,18 +153,37 @@
             groupBox3.Controls.Add(txtNombreActualizarP);
             groupBox3.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             groupBox3.ForeColor = Color.White;
-            groupBox3.Location = new Point(866, 12);
+            groupBox3.Location = new Point(866, 177);
             groupBox3.Name = "groupBox3";
-            groupBox3.Size = new Size(387, 236);
+            groupBox3.Size = new Size(414, 201);
             groupBox3.TabIndex = 2;
             groupBox3.TabStop = false;
             groupBox3.Text = "Update";
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label4.ForeColor = Color.White;
+            label4.Location = new Point(29, 34);
+            label4.Name = "label4";
+            label4.Size = new Size(69, 23);
+            label4.TabIndex = 4;
+            label4.Text = "ID Pais:";
+            // 
+            // txtActualizarIDP
+            // 
+            txtActualizarIDP.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            txtActualizarIDP.Location = new Point(104, 34);
+            txtActualizarIDP.Name = "txtActualizarIDP";
+            txtActualizarIDP.Size = new Size(204, 30);
+            txtActualizarIDP.TabIndex = 3;
             // 
             // btnActualizarP
             // 
             btnActualizarP.BackColor = Color.DarkGreen;
             btnActualizarP.ForeColor = Color.White;
-            btnActualizarP.Location = new Point(135, 166);
+            btnActualizarP.Location = new Point(134, 138);
             btnActualizarP.Name = "btnActualizarP";
             btnActualizarP.Size = new Size(144, 57);
             btnActualizarP.TabIndex = 2;
@@ -171,7 +195,7 @@
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label3.ForeColor = Color.White;
-            label3.Location = new Point(29, 101);
+            label3.Location = new Point(29, 93);
             label3.Name = "label3";
             label3.Size = new Size(117, 23);
             label3.TabIndex = 1;
@@ -180,50 +204,62 @@
             // txtNombreActualizarP
             // 
             txtNombreActualizarP.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            txtNombreActualizarP.Location = new Point(152, 98);
+            txtNombreActualizarP.Location = new Point(152, 90);
             txtNombreActualizarP.Name = "txtNombreActualizarP";
-            txtNombreActualizarP.Size = new Size(204, 30);
+            txtNombreActualizarP.Size = new Size(236, 30);
             txtNombreActualizarP.TabIndex = 0;
-            // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label4.ForeColor = Color.White;
-            label4.Location = new Point(29, 42);
-            label4.Name = "label4";
-            label4.Size = new Size(69, 23);
-            label4.TabIndex = 4;
-            label4.Text = "ID Pais:";
-            // 
-            // txtActualizarIDP
-            // 
-            txtActualizarIDP.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            txtActualizarIDP.Location = new Point(104, 42);
-            txtActualizarIDP.Name = "txtActualizarIDP";
-            txtActualizarIDP.Size = new Size(204, 30);
-            txtActualizarIDP.TabIndex = 3;
             // 
             // groupBox4
             // 
-            groupBox4.Controls.Add(dgvPais);
+            groupBox4.Controls.Add(dgv_Pais);
             groupBox4.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            groupBox4.ForeColor = Color.White;
-            groupBox4.Location = new Point(12, 319);
+            groupBox4.ForeColor = Color.Black;
+            groupBox4.Location = new Point(12, 414);
             groupBox4.Name = "groupBox4";
-            groupBox4.Size = new Size(1277, 420);
+            groupBox4.Size = new Size(1277, 325);
             groupBox4.TabIndex = 3;
             groupBox4.TabStop = false;
             groupBox4.Text = "Select";
             // 
-            // dgvPais
+            // dgv_Pais
             // 
-            dgvPais.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvPais.Location = new Point(104, 29);
-            dgvPais.Name = "dgvPais";
-            dgvPais.RowHeadersWidth = 51;
-            dgvPais.Size = new Size(1058, 358);
-            dgvPais.TabIndex = 0;
+            dgv_Pais.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgv_Pais.Location = new Point(104, 19);
+            dgv_Pais.Name = "dgv_Pais";
+            dgv_Pais.RowHeadersWidth = 51;
+            dgv_Pais.Size = new Size(1058, 298);
+            dgv_Pais.TabIndex = 0;
+            // 
+            // label5
+            // 
+            label5.Font = new Font("Segoe UI", 30F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label5.ForeColor = Color.White;
+            label5.Location = new Point(464, 9);
+            label5.Name = "label5";
+            label5.Size = new Size(444, 92);
+            label5.TabIndex = 0;
+            label5.Text = "Agencia de Tours";
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.BackColor = Color.Transparent;
+            label6.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label6.ForeColor = Color.WhiteSmoke;
+            label6.Location = new Point(27, 5);
+            label6.Name = "label6";
+            label6.Size = new Size(384, 28);
+            label6.TabIndex = 4;
+            label6.Text = "<= Opciones para gestionar un pais =>";
+            // 
+            // panel1
+            // 
+            panel1.BackColor = Color.SlateBlue;
+            panel1.Controls.Add(label6);
+            panel1.Location = new Point(432, 104);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(443, 43);
+            panel1.TabIndex = 5;
             // 
             // FrmPais
             // 
@@ -231,6 +267,8 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.MidnightBlue;
             ClientSize = new Size(1292, 743);
+            Controls.Add(panel1);
+            Controls.Add(label5);
             Controls.Add(groupBox4);
             Controls.Add(groupBox3);
             Controls.Add(groupBox2);
@@ -244,7 +282,9 @@
             groupBox3.ResumeLayout(false);
             groupBox3.PerformLayout();
             groupBox4.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)dgvPais).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgv_Pais).EndInit();
+            panel1.ResumeLayout(false);
+            panel1.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -265,6 +305,9 @@
         private Label label4;
         private TextBox txtActualizarIDP;
         private GroupBox groupBox4;
-        private DataGridView dgvPais;
+        private DataGridView dgv_Pais;
+        private Label label5;
+        private Label label6;
+        private Panel panel1;
     }
 }
