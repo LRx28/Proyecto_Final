@@ -47,12 +47,16 @@
             label5 = new Label();
             label6 = new Label();
             panel1 = new Panel();
+            groupBox5 = new GroupBox();
+            btn_Csv = new Button();
+            btn_Pdf = new Button();
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
             groupBox3.SuspendLayout();
             groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgv_Pais).BeginInit();
             panel1.SuspendLayout();
+            groupBox5.SuspendLayout();
             SuspendLayout();
             // 
             // groupBox1
@@ -190,6 +194,7 @@
             btnActualizarP.TabIndex = 2;
             btnActualizarP.Text = "Actualizar";
             btnActualizarP.UseVisualStyleBackColor = false;
+            btnActualizarP.Click += btnActualizarP_Click;
             // 
             // label3
             // 
@@ -262,12 +267,50 @@
             panel1.Size = new Size(443, 43);
             panel1.TabIndex = 5;
             // 
+            // groupBox5
+            // 
+            groupBox5.Controls.Add(btn_Csv);
+            groupBox5.Controls.Add(btn_Pdf);
+            groupBox5.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            groupBox5.ForeColor = Color.White;
+            groupBox5.Location = new Point(927, 9);
+            groupBox5.Name = "groupBox5";
+            groupBox5.Size = new Size(296, 109);
+            groupBox5.TabIndex = 6;
+            groupBox5.TabStop = false;
+            groupBox5.Text = "Exportar";
+            // 
+            // btn_Csv
+            // 
+            btn_Csv.BackColor = Color.DarkGreen;
+            btn_Csv.ForeColor = Color.White;
+            btn_Csv.Location = new Point(35, 29);
+            btn_Csv.Name = "btn_Csv";
+            btn_Csv.Size = new Size(105, 45);
+            btn_Csv.TabIndex = 3;
+            btn_Csv.Text = ".CSV";
+            btn_Csv.UseVisualStyleBackColor = false;
+            btn_Csv.Click += btn_Csv_Click;
+            // 
+            // btn_Pdf
+            // 
+            btn_Pdf.BackColor = Color.DarkGreen;
+            btn_Pdf.ForeColor = Color.White;
+            btn_Pdf.Location = new Point(175, 29);
+            btn_Pdf.Name = "btn_Pdf";
+            btn_Pdf.Size = new Size(105, 45);
+            btn_Pdf.TabIndex = 2;
+            btn_Pdf.Text = "PDF";
+            btn_Pdf.UseVisualStyleBackColor = false;
+            btn_Pdf.Click += btn_Pdf_Click;
+            // 
             // FrmPais
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.MidnightBlue;
             ClientSize = new Size(1292, 743);
+            Controls.Add(groupBox5);
             Controls.Add(panel1);
             Controls.Add(label5);
             Controls.Add(groupBox4);
@@ -286,6 +329,7 @@
             ((System.ComponentModel.ISupportInitialize)dgv_Pais).EndInit();
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
+            groupBox5.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -310,5 +354,8 @@
         private Label label5;
         private Label label6;
         private Panel panel1;
+        private GroupBox groupBox5;
+        private Button btn_Csv;
+        private Button btn_Pdf;
     }
 }

@@ -1,3 +1,6 @@
+Ôªøusing iText.Kernel.Pdf;
+using iText.Layout;
+using iText.Layout.Element;
 using ProyectoFinal.Model;
 
 namespace ProyectoFinal
@@ -13,7 +16,7 @@ namespace ProyectoFinal
             _context = new AppAgenciaTContext();
             CargarPaises();
 
-            //Esto lo hice para que se vea mejor el datagridview ya que al cargar los datos se veÌan muy pequeÒos y no se ajustaban al tamaÒo del datagridview
+            //Esto lo hice para que se vea mejor el datagridview ya que al cargar los datos se ve√≠an muy peque√±os y no se ajustaban al tama√±o del datagridview
             dgv_Pais.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
         }
 
@@ -38,13 +41,13 @@ namespace ProyectoFinal
         {
             if (string.IsNullOrWhiteSpace(txt_Pais.Text))
             {
-                MessageBox.Show("Por favor, ingrese el nombre del paÌs.");
+                MessageBox.Show("Por favor, ingrese el nombre del pa√≠s.");
                 return;
             }
-            // Aqui valido que el nombre del paÌs no sea un numero
+            // Aqui valido que el nombre del pa√≠s no sea un numero
             if (int.TryParse(txt_Pais.Text, out int pais))
             {
-                MessageBox.Show("El nombre del paÌs no puede ser un n˙mero. ingrese un nombre v·lido.");
+                MessageBox.Show("El nombre del pa√≠s no puede ser un n√∫mero. ingrese un nombre v√°lido.");
                 txt_Pais.Clear();
                 return;
 
@@ -59,13 +62,13 @@ namespace ProyectoFinal
             var resultado = _context.SaveChanges();
             if (resultado > 0)
             {
-                MessageBox.Show("PaÌs agregado exitosamente.");
+                MessageBox.Show("Pa√≠s agregado exitosamente.");
                 CargarPaises();
                 txt_Pais.Clear();
             }
             else
             {
-                MessageBox.Show("Error al agregar el paÌs. Intente nuevamente.");
+                MessageBox.Show("Error al agregar el pa√≠s. Intente nuevamente.");
 
             }
         }
@@ -73,7 +76,7 @@ namespace ProyectoFinal
         private void btnEliminarPais_Click(object sender, EventArgs e)
         {
             if (!int.TryParse(txtEliminarPais.Text, out int pais))
-                {
+            {
                 MessageBox.Show("ID incorrecto o vacio.");
                 txtEliminarPais.Clear();
                 return;
@@ -82,7 +85,7 @@ namespace ProyectoFinal
             var paisAEliminar = _context.Pais.Find(pais);
             if (paisAEliminar == null)
             {
-                MessageBox.Show("No se encontrÛ el paÌs con el ID proporcionado.");
+                MessageBox.Show("No se encontr√≥ el pa√≠s con el ID proporcionado.");
                 txtEliminarPais.Clear();
                 return;
             }
@@ -91,17 +94,142 @@ namespace ProyectoFinal
             var resultado = _context.SaveChanges();
             if (resultado > 0)
             {
-                MessageBox.Show("PaÌs eliminado exitosamente.");
+                MessageBox.Show("Pa√≠s eliminado exitosamente.");
                 CargarPaises();
                 txtEliminarPais.Clear();
             }
             else
             {
-                MessageBox.Show("Error al eliminar el paÌs. Intente nuevamente.");
+                MessageBox.Show("Error al eliminar el pa√≠s. Intente nuevamente.");
             }
 
 
 
         }
+
+        private void btnActualizarP_Click(object sender, EventArgs e)
+        {
+            if (!int.TryParse(txtActualizarIDP.Text, out int paisActualizar))
+            {
+                MessageBox.Show("ID incorrecto o vacio");
+                txtActualizarIDP.Clear();
+                return;
+            }
+
+            if (string.IsNullOrEmpty(txtNombreActualizarP.Text))
+            {
+                MessageBox.Show("Por favor, ingrese el nuevo nombre del pa√≠s.");
+                return;
+            }
+
+            if (int.TryParse(txtNombreActualizarP.Text, out int nombrePais))
+            {
+                MessageBox.Show("El nombre del pa√≠s no puede ser un n√∫mero. ingrese un nombre v√°lido.");
+                txtNombreActualizarP.Clear();
+                return;
+            }
+
+            var paisAActualizar = _context.Pais.Find(paisActualizar);
+            if (paisAActualizar == null)
+            {
+                MessageBox.Show("No se encontr√≥ el pa√≠s con el ID proporcionado.");
+                txtActualizarIDP.Clear();
+                txtNombreActualizarP.Clear();
+                return;
+            }
+
+            paisAActualizar.NombrePais = txtNombreActualizarP.Text;
+
+            var resultado = _context.SaveChanges();
+            if (resultado > 0)
+            {
+                MessageBox.Show("Pa√≠s actualizado exitosamente.");
+                CargarPaises();
+                txtActualizarIDP.Clear();
+                txtNombreActualizarP.Clear();
+            }
+            else
+            {
+                MessageBox.Show("Error al actualizar el pa√≠s. Intente nuevamente.");
+            }
+        }
+
+        private void btn_Csv_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog saveFileDialog = new SaveFileDialog
+            {
+                Filter = "Archivo CSV (*.csv)|*.csv",
+                Title = "Guardar como CSV"
+            };
+
+            if (saveFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                try
+                {
+                    using (StreamWriter writer = new StreamWriter(saveFileDialog.FileName))
+                    {
+                        //Aqui escribe los encabezados
+                        writer.WriteLine("PaisId,NombrePais");
+                        // Aqui escribe los datos de cada pa√≠s
+                        foreach (var pais in _context.Pais)
+                        {
+                            writer.WriteLine($"{pais.PaisId},{pais.NombrePais}");
+                        }
+                    }
+                    MessageBox.Show("Archivo CSV guardado exitosamente.");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Error al guardar el archivo CSV: {ex.Message}");
+                }
+            }
+        }
+
+        private void btn_Pdf_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog sfd = new SaveFileDialog
+            {
+                Filter = "Archivo PDF (*.pdf)|*.pdf",
+                Title = "Guardar como PDF",
+                FileName = "Reporte.pdf"
+            };
+            try
+            {
+                if (sfd.ShowDialog() == DialogResult.OK)
+                {
+                    using (PdfWriter writer = new PdfWriter(sfd.FileName))
+                    using (PdfDocument pdf = new PdfDocument(writer))
+                    using (Document doc = new Document(pdf))
+                    {
+                        Table table = new Table(2);
+
+                        table.AddCell("PaisId");
+                        table.AddCell("NombrePais");
+
+                        var paises = _context.Pais.ToList();
+                        if (paises.Count == 0)
+                        {
+                            MessageBox.Show("No se encontraron pa√≠ses para exportar.");
+                            return;
+                        }
+
+                        foreach (var pais in paises)
+                        {
+                            table.AddCell(pais.PaisId.ToString());
+                            table.AddCell(pais.NombrePais ?? "");
+                        }
+
+                        doc.Add(table);
+                    }
+
+                    MessageBox.Show("PDF creado correctamente");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al crear el PDF: {ex.Message}"); 
+            }
+        }
+
     }
 }
