@@ -191,7 +191,7 @@ namespace ProyectoFinal
             {
                 Filter = "Archivo PDF (*.pdf)|*.pdf",
                 Title = "Guardar como PDF",
-                FileName = "Reporte.pdf"
+                FileName = "Reporte_Pais.pdf"
             };
             try
             {
