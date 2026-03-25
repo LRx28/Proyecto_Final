@@ -111,7 +111,7 @@
             groupBox2.Controls.Add(txtEliminarPais);
             groupBox2.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             groupBox2.ForeColor = Color.White;
-            groupBox2.Location = new Point(464, 177);
+            groupBox2.Location = new Point(478, 177);
             groupBox2.Name = "groupBox2";
             groupBox2.Size = new Size(332, 201);
             groupBox2.TabIndex = 1;
