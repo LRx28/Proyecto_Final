@@ -132,7 +132,7 @@ namespace ProyectoFinal
             var paisAActualizar = _context.Pais.Find(paisActualizar);
             if (paisAActualizar == null)
             {
-                MessageBox.Show("No se encontró el país con el ID proporcionado.");
+                MessageBox.Show("No se encontro el país con el ID ingresado.");
                 txtActualizarIDP.Clear();
                 txtNombreActualizarP.Clear();
                 return;

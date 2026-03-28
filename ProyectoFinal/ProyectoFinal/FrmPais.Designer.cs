@@ -273,9 +273,9 @@
             groupBox5.Controls.Add(btn_Pdf);
             groupBox5.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             groupBox5.ForeColor = Color.White;
-            groupBox5.Location = new Point(927, 9);
+            groupBox5.Location = new Point(984, 24);
             groupBox5.Name = "groupBox5";
-            groupBox5.Size = new Size(296, 109);
+            groupBox5.Size = new Size(296, 92);
             groupBox5.TabIndex = 6;
             groupBox5.TabStop = false;
             groupBox5.Text = "Exportar";
