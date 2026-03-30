@@ -1,4 +1,7 @@
-﻿using ProyectoFinal.Model;
+﻿using iText.Kernel.Pdf;
+using iText.Layout;
+using iText.Layout.Element;
+using ProyectoFinal.Model;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -86,7 +89,6 @@ namespace ProyectoFinal
                 txtActualizarDestinoId.Clear();
                 txtDestinoNombre.Clear();
                 txtDestinoDuracionD.Clear();
-
             }
 
             else
@@ -103,9 +105,9 @@ namespace ProyectoFinal
             var listaPaises = _context.Pais.ToList();
             listaPaises.Insert(0, new Pais
             {
-                PaisId = 0, 
-              NombrePais = "      -- Seleccione un país --" 
-            }); 
+                PaisId = 0,
+                NombrePais = "      -- Seleccione un país --"
+            });
 
             cmbDestinosP.DataSource = listaPaises;
             cmbDestinosP.DisplayMember = "NombrePais";
@@ -211,6 +213,92 @@ namespace ProyectoFinal
             else
             {
                 MessageBox.Show("Error al actualizar el destino. Por favor intente nuevamente.");
+            }
+        }
+
+        private void btn_CsvDestino_Click(object sender, EventArgs e)
+        {
+
+            SaveFileDialog saveFileDialog = new SaveFileDialog
+            {
+                Filter = "Archivo CSV (*.csv)|*.csv",
+                Title = "Guardar como CSV",
+                FileName = "CSV_Destinos.csv"
+
+
+            };
+
+            if (saveFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                try
+                {
+                    using (StreamWriter writer = new StreamWriter(saveFileDialog.FileName))
+                    {
+
+                        writer.WriteLine("DestinoID,NombreDestino,PaisId,DuracionDias,DuracionHora");
+                        foreach (var destinos in _context.Destinos)
+                        {
+                            writer.WriteLine($"{destinos.DestinoID},{destinos.NombreDestino},{destinos.PaisId},{destinos.DuracionDias},{destinos.DuracionDias}");
+                        }
+                    }
+                    MessageBox.Show("Archivo CSV guardado exitosamente.");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Error al guardar el archivo CSV: {ex.Message}");
+                }
+            }
+        }
+
+        private void btn_PdfDestino_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog sfd = new SaveFileDialog
+            {
+                Filter = "Archivo PDF (*.pdf)|*.pdf",
+                Title = "Guardar como PDF",
+                FileName = "PDF_Destinos.pdf"
+            };
+            try
+            {
+                if (sfd.ShowDialog() == DialogResult.OK)
+                {
+                    using (PdfWriter writer = new PdfWriter(sfd.FileName))
+                    using (PdfDocument pdf = new PdfDocument(writer))
+                    using (Document doc = new Document(pdf))
+                    {
+                        Table table = new Table(2);
+
+                        table.AddCell("DestinoID");
+                        table.AddCell("NombreDestino");
+                        table.AddCell("PaisId");
+                        table.AddCell("DuracionDias");
+                        table.AddCell("DuracionHora");
+
+                        var destinosD = _context.Destinos.ToList();
+                        if (destinosD.Count == 0)
+                        {
+                            MessageBox.Show("No se encontraron países para exportar.");
+                            return;
+                        }
+
+                        foreach (var destinos in destinosD)
+                        {
+                            table.AddCell(destinos.DestinoID.ToString());
+                            table.AddCell(destinos.NombreDestino ?? "");
+                            table.AddCell(destinos.PaisId.ToString());
+                            table.AddCell(destinos.DuracionDias.ToString());
+                            table.AddCell(destinos.DuracionHora.ToString());
+                        }
+
+                        doc.Add(table);
+                    }
+
+                    MessageBox.Show("PDF creado correctamente");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al crear el PDF: {ex.Message}");
             }
         }
     }

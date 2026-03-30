@@ -134,7 +134,6 @@ namespace ProyectoFinal
             {
                 MessageBox.Show("No se encontro el país con el ID ingresado.");
                 txtActualizarIDP.Clear();
-                txtNombreActualizarP.Clear();
                 return;
             }
 
@@ -159,12 +158,14 @@ namespace ProyectoFinal
             SaveFileDialog saveFileDialog = new SaveFileDialog
             {
                 Filter = "Archivo CSV (*.csv)|*.csv",
-                Title = "Guardar como CSV"
+                Title = "Guardar como CSV",
+                FileName = "Reporte_Pais.csv"
+
             };
 
-            if (saveFileDialog.ShowDialog() == DialogResult.OK)
+            try
             {
-                try
+                if (saveFileDialog.ShowDialog() == DialogResult.OK)
                 {
                     using (StreamWriter writer = new StreamWriter(saveFileDialog.FileName))
                     {
@@ -178,11 +179,12 @@ namespace ProyectoFinal
                     }
                     MessageBox.Show("Archivo CSV guardado exitosamente.");
                 }
-                catch (Exception ex)
-                {
-                    MessageBox.Show($"Error al guardar el archivo CSV: {ex.Message}");
-                }
             }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al guardar el archivo CSV: {ex.Message}");
+            }
+
         }
 
         private void btn_Pdf_Click(object sender, EventArgs e)
@@ -191,7 +193,7 @@ namespace ProyectoFinal
             {
                 Filter = "Archivo PDF (*.pdf)|*.pdf",
                 Title = "Guardar como PDF",
-                FileName = "Reporte_Pais.pdf"
+                FileName = "PDF_Pais.pdf"
             };
             try
             {

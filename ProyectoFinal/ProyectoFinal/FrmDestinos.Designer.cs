@@ -385,6 +385,7 @@
             btn_CsvDestino.TabIndex = 3;
             btn_CsvDestino.Text = ".CSV";
             btn_CsvDestino.UseVisualStyleBackColor = false;
+            btn_CsvDestino.Click += btn_CsvDestino_Click;
             // 
             // btn_PdfDestino
             // 
@@ -396,6 +397,7 @@
             btn_PdfDestino.TabIndex = 2;
             btn_PdfDestino.Text = "PDF";
             btn_PdfDestino.UseVisualStyleBackColor = false;
+            btn_PdfDestino.Click += btn_PdfDestino_Click;
             // 
             // FrmDestinos
             // 

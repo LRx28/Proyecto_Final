@@ -15,7 +15,7 @@ namespace ProyectoFinal
         public FrmMenu()
         {
             InitializeComponent();
-           
+
         }
 
         private void btnMenuPais_Click(object sender, EventArgs e)
@@ -27,8 +27,10 @@ namespace ProyectoFinal
 
         private void btnMenuDestino_Click(object sender, EventArgs e)
         {
-            FrmDestinos frm = new FrmDestinos();    
+            FrmDestinos frm = new FrmDestinos();
             frm.Show();
         }
+
+       
     }
 }
