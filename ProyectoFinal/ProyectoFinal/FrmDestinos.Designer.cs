@@ -78,7 +78,7 @@
             groupBox1.Controls.Add(txtDestinoNombre);
             groupBox1.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             groupBox1.ForeColor = Color.White;
-            groupBox1.Location = new Point(12, 151);
+            groupBox1.Location = new Point(26, 151);
             groupBox1.Name = "groupBox1";
             groupBox1.Size = new Size(469, 238);
             groupBox1.TabIndex = 1;
@@ -163,7 +163,7 @@
             groupBox2.Controls.Add(txtDestinoE);
             groupBox2.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             groupBox2.ForeColor = Color.White;
-            groupBox2.Location = new Point(509, 176);
+            groupBox2.Location = new Point(523, 176);
             groupBox2.Name = "groupBox2";
             groupBox2.Size = new Size(277, 173);
             groupBox2.TabIndex = 2;
@@ -214,7 +214,7 @@
             groupBox3.Controls.Add(txtNombreActualizarD);
             groupBox3.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             groupBox3.ForeColor = Color.White;
-            groupBox3.Location = new Point(822, 151);
+            groupBox3.Location = new Point(836, 151);
             groupBox3.Name = "groupBox3";
             groupBox3.Size = new Size(589, 238);
             groupBox3.TabIndex = 3;
@@ -346,9 +346,9 @@
             groupBox4.Controls.Add(dgv_Destinos);
             groupBox4.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             groupBox4.ForeColor = Color.Black;
-            groupBox4.Location = new Point(38, 395);
+            groupBox4.Location = new Point(70, 395);
             groupBox4.Name = "groupBox4";
-            groupBox4.Size = new Size(1277, 335);
+            groupBox4.Size = new Size(1275, 335);
             groupBox4.TabIndex = 8;
             groupBox4.TabStop = false;
             groupBox4.Text = "Select";
