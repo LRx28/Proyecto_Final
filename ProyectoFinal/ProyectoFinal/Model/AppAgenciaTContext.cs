@@ -11,6 +11,7 @@ namespace ProyectoFinal.Model
     {
         public DbSet<Pais> Pais{ get; set; }  
         public DbSet<Destino> Destinos { get; set; }
+        public DbSet<Tour> Tours { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlServer("Server=LR;Database=Agencia_Tours;Trusted_Connection=True;TrustServerCertificate=True;");

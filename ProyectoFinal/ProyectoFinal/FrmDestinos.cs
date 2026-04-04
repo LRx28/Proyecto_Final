@@ -30,8 +30,8 @@ namespace ProyectoFinal
         private void CargarDestinos()
         {
             var listaDestinos = _context.Destinos
-                .Select(d => new
-                {
+                
+                .Select(d => new                {
                     d.DestinoID,
                     d.NombreDestino,
                     d.PaisId,
@@ -42,7 +42,6 @@ namespace ProyectoFinal
             var n = listaDestinos.FirstOrDefault();
             dgv_Destinos.DataSource = listaDestinos;
         }
-
         private void btnAgregarDestino_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(txtDestinoNombre.Text))
@@ -143,7 +142,7 @@ namespace ProyectoFinal
             {
                 MessageBox.Show("Destino eliminado correctamente!");
                 CargarDestinos();
-                txtActualizarDestinoId.Clear();
+                txtDestinoE.Clear();
             }
             else
             {
@@ -293,7 +292,7 @@ namespace ProyectoFinal
                         doc.Add(table);
                     }
 
-                    MessageBox.Show("PDF creado correctamente");
+                    MessageBox.Show("PDF creado correctamente.");
                 }
             }
             catch (Exception ex)
