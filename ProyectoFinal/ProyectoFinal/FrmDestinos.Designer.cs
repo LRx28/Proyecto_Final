@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             groupBox1 = new GroupBox();
+            label7 = new Label();
+            txtDuracionHora = new TextBox();
             label11 = new Label();
             cmbDestinosP = new ComboBox();
             btnAgregarDestino = new Button();
-            label2 = new Label();
-            txtDestinoDuracionD = new TextBox();
             label1 = new Label();
             txtDestinoNombre = new TextBox();
             groupBox2 = new GroupBox();
@@ -41,10 +41,10 @@
             label4 = new Label();
             txtDestinoE = new TextBox();
             groupBox3 = new GroupBox();
+            label12 = new Label();
+            txtActualizarDuracionH = new TextBox();
             label3 = new Label();
             cmbActualizarDestino = new ComboBox();
-            label8 = new Label();
-            txtActualizarDuracionD = new TextBox();
             label5 = new Label();
             txtActualizarDestinoId = new TextBox();
             btnActualizarDestino = new Button();
@@ -69,11 +69,11 @@
             // 
             // groupBox1
             // 
+            groupBox1.Controls.Add(label7);
+            groupBox1.Controls.Add(txtDuracionHora);
             groupBox1.Controls.Add(label11);
             groupBox1.Controls.Add(cmbDestinosP);
             groupBox1.Controls.Add(btnAgregarDestino);
-            groupBox1.Controls.Add(label2);
-            groupBox1.Controls.Add(txtDestinoDuracionD);
             groupBox1.Controls.Add(label1);
             groupBox1.Controls.Add(txtDestinoNombre);
             groupBox1.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
@@ -84,6 +84,25 @@
             groupBox1.TabIndex = 1;
             groupBox1.TabStop = false;
             groupBox1.Text = "Insert";
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label7.ForeColor = Color.White;
+            label7.Location = new Point(19, 124);
+            label7.Name = "label7";
+            label7.Size = new Size(150, 23);
+            label7.TabIndex = 10;
+            label7.Text = "Duracion (Horas):";
+            // 
+            // txtDuracionHora
+            // 
+            txtDuracionHora.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            txtDuracionHora.Location = new Point(171, 124);
+            txtDuracionHora.Name = "txtDuracionHora";
+            txtDuracionHora.Size = new Size(88, 30);
+            txtDuracionHora.TabIndex = 9;
             // 
             // label11
             // 
@@ -110,7 +129,7 @@
             // 
             btnAgregarDestino.BackColor = Color.DarkGreen;
             btnAgregarDestino.ForeColor = Color.White;
-            btnAgregarDestino.Location = new Point(177, 167);
+            btnAgregarDestino.Location = new Point(166, 168);
             btnAgregarDestino.Name = "btnAgregarDestino";
             btnAgregarDestino.Size = new Size(144, 57);
             btnAgregarDestino.TabIndex = 2;
@@ -118,31 +137,12 @@
             btnAgregarDestino.UseVisualStyleBackColor = false;
             btnAgregarDestino.Click += btnAgregarDestino_Click;
             // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label2.ForeColor = Color.White;
-            label2.Location = new Point(20, 118);
-            label2.Name = "label2";
-            label2.Size = new Size(126, 23);
-            label2.TabIndex = 4;
-            label2.Text = "Duracion Dias:";
-            // 
-            // txtDestinoDuracionD
-            // 
-            txtDestinoDuracionD.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            txtDestinoDuracionD.Location = new Point(147, 118);
-            txtDestinoDuracionD.Name = "txtDestinoDuracionD";
-            txtDestinoDuracionD.Size = new Size(107, 30);
-            txtDestinoDuracionD.TabIndex = 3;
-            // 
             // label1
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.White;
-            label1.Location = new Point(18, 72);
+            label1.Location = new Point(18, 77);
             label1.Name = "label1";
             label1.Size = new Size(147, 23);
             label1.TabIndex = 1;
@@ -151,7 +151,7 @@
             // txtDestinoNombre
             // 
             txtDestinoNombre.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            txtDestinoNombre.Location = new Point(166, 71);
+            txtDestinoNombre.Location = new Point(166, 76);
             txtDestinoNombre.Name = "txtDestinoNombre";
             txtDestinoNombre.Size = new Size(268, 30);
             txtDestinoNombre.TabIndex = 0;
@@ -203,10 +203,10 @@
             // 
             // groupBox3
             // 
+            groupBox3.Controls.Add(label12);
+            groupBox3.Controls.Add(txtActualizarDuracionH);
             groupBox3.Controls.Add(label3);
             groupBox3.Controls.Add(cmbActualizarDestino);
-            groupBox3.Controls.Add(label8);
-            groupBox3.Controls.Add(txtActualizarDuracionD);
             groupBox3.Controls.Add(label5);
             groupBox3.Controls.Add(txtActualizarDestinoId);
             groupBox3.Controls.Add(btnActualizarDestino);
@@ -220,6 +220,25 @@
             groupBox3.TabIndex = 3;
             groupBox3.TabStop = false;
             groupBox3.Text = "Update";
+            // 
+            // label12
+            // 
+            label12.AutoSize = true;
+            label12.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label12.ForeColor = Color.White;
+            label12.Location = new Point(23, 183);
+            label12.Name = "label12";
+            label12.Size = new Size(150, 23);
+            label12.TabIndex = 12;
+            label12.Text = "Duracion (Horas):";
+            // 
+            // txtActualizarDuracionH
+            // 
+            txtActualizarDuracionH.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            txtActualizarDuracionH.Location = new Point(178, 182);
+            txtActualizarDuracionH.Name = "txtActualizarDuracionH";
+            txtActualizarDuracionH.Size = new Size(88, 30);
+            txtActualizarDuracionH.TabIndex = 11;
             // 
             // label3
             // 
@@ -240,25 +259,6 @@
             cmbActualizarDestino.Name = "cmbActualizarDestino";
             cmbActualizarDestino.Size = new Size(252, 31);
             cmbActualizarDestino.TabIndex = 9;
-            // 
-            // label8
-            // 
-            label8.AutoSize = true;
-            label8.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label8.ForeColor = Color.White;
-            label8.Location = new Point(19, 184);
-            label8.Name = "label8";
-            label8.Size = new Size(126, 23);
-            label8.TabIndex = 8;
-            label8.Text = "Duracion Dias:";
-            // 
-            // txtActualizarDuracionD
-            // 
-            txtActualizarDuracionD.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            txtActualizarDuracionD.Location = new Point(150, 181);
-            txtActualizarDuracionD.Name = "txtActualizarDuracionD";
-            txtActualizarDuracionD.Size = new Size(83, 30);
-            txtActualizarDuracionD.TabIndex = 7;
             // 
             // label5
             // 
@@ -283,7 +283,7 @@
             // 
             btnActualizarDestino.BackColor = Color.DarkGreen;
             btnActualizarDestino.ForeColor = Color.White;
-            btnActualizarDestino.Location = new Point(434, 91);
+            btnActualizarDestino.Location = new Point(426, 97);
             btnActualizarDestino.Name = "btnActualizarDestino";
             btnActualizarDestino.Size = new Size(144, 57);
             btnActualizarDestino.TabIndex = 2;
@@ -346,7 +346,7 @@
             groupBox4.Controls.Add(dgv_Destinos);
             groupBox4.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             groupBox4.ForeColor = Color.Black;
-            groupBox4.Location = new Point(70, 395);
+            groupBox4.Location = new Point(80, 395);
             groupBox4.Name = "groupBox4";
             groupBox4.Size = new Size(1275, 335);
             groupBox4.TabIndex = 8;
@@ -435,8 +435,6 @@
         private Button btnAgregarDestino;
         private Label label1;
         private TextBox txtDestinoNombre;
-        private Label label2;
-        private TextBox txtDestinoDuracionD;
         private GroupBox groupBox2;
         private Button btnDestinoE;
         private Label label4;
@@ -447,8 +445,6 @@
         private Button btnActualizarDestino;
         private Label label6;
         private TextBox txtNombreActualizarD;
-        private Label label8;
-        private TextBox txtActualizarDuracionD;
         private Panel panel1;
         private Label label9;
         private Label label10;
@@ -461,5 +457,9 @@
         private ComboBox cmbDestinosP;
         private Label label3;
         private ComboBox cmbActualizarDestino;
+        private Label label7;
+        private TextBox txtDuracionHora;
+        private Label label12;
+        private TextBox txtActualizarDuracionH;
     }
 }

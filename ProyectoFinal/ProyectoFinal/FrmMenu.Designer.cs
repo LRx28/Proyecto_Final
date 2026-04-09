@@ -111,6 +111,7 @@
             btnMenuTours.TabIndex = 10;
             btnMenuTours.Text = "Tours";
             btnMenuTours.UseVisualStyleBackColor = false;
+            btnMenuTours.Click += btnMenuTours_Click;
             // 
             // label1
             // 
@@ -197,6 +198,7 @@
             Controls.Add(label5);
             Name = "FrmMenu";
             Text = "Menu";
+            Load += FrmMenu_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ResumeLayout(false);

@@ -31,6 +31,15 @@ namespace ProyectoFinal
             frm.Show();
         }
 
-       
+        private void FrmMenu_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnMenuTours_Click(object sender, EventArgs e)
+        {
+            FrmTours frm = new FrmTours();
+            frm.Show();
+        }
     }
 }

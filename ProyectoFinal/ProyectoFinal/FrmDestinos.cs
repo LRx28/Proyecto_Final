@@ -56,14 +56,17 @@ namespace ProyectoFinal
                 txtDestinoNombre.Clear();
                 return;
             }
+           
+            int destinoHoras = 0;
 
-            if (!int.TryParse(txtDestinoDuracionD.Text, out int destinoDias) || destinoDias < 0)
+            //Aqui valido el campo de duracion en Horas no este vacio y que sea un numero valido.
+            if (!int.TryParse(txtDuracionHora.Text, out destinoHoras))
             {
-                MessageBox.Show("Por favor, ingrese un número válido para la duración en días.");
-                txtDestinoDuracionD.Clear();
+                MessageBox.Show("Duracion en horas invalida. Debes de ingresar un numero valido.");
+                txtDuracionHora.Clear();
                 return;
             }
-
+ 
             if (Convert.ToInt32(cmbDestinosP.SelectedValue) == 0)
             {
                 MessageBox.Show("Debes de seleccionar un pais valido.");
@@ -73,8 +76,8 @@ namespace ProyectoFinal
             Destino nuevoDestino = new Destino
             {
                 NombreDestino = txtDestinoNombre.Text,
-                DuracionDias = destinoDias,
-                DuracionHora = destinoDias * 24,
+                DuracionDias = destinoHoras /24,
+                DuracionHora = destinoHoras,
                 PaisId = Convert.ToInt32(cmbDestinosP.SelectedValue)
             };
 
@@ -87,15 +90,14 @@ namespace ProyectoFinal
                 CargarDestinos();
                 txtActualizarDestinoId.Clear();
                 txtDestinoNombre.Clear();
-                txtDestinoDuracionD.Clear();
+                txtDuracionHora.Clear();
+                cmbDestinosP.SelectedIndex = 0;
             }
 
             else
             {
                 MessageBox.Show("Error al agregar el destino. Por favor, intente nuevamente.");
             }
-
-
         }
 
         private void FrmDestinos_Load(object sender, EventArgs e)
@@ -159,27 +161,26 @@ namespace ProyectoFinal
                 return;
             }
 
-            if (string.IsNullOrEmpty(txtNombreActualizarD.Text))
+            if (!string.IsNullOrEmpty(txtNombreActualizarD.Text))
             {
-                MessageBox.Show("El campo destino no puede estar vacio. Ingresa un destino valido.");
-                txtNombreActualizarD.Clear();
-                return;
+                if (int.TryParse(txtNombreActualizarD.Text, out int destinoActualizarN))
+                {
+                    MessageBox.Show("Nombre del destino invalido. Debe de ingresar un Nombre valido para el destino.");
+                    txtNombreActualizarD.Clear();
+                    return;
+                }
             }
 
-            if (int.TryParse(txtNombreActualizarD.Text, out int destinoActualizarN))
+          
+            var destinoDuracionHora = 0;
+
+            if (!int.TryParse(txtActualizarDuracionH.Text, out destinoDuracionHora))
             {
-                MessageBox.Show("El destino ingresado no puede ser un numero . Por favor introduzca un destino valido.");
-                txtNombreActualizarD.Clear();
+                MessageBox.Show("Duracion en horas invalida. Debes de ingresar un numero valido.");
+                txtActualizarDuracionH.Clear();
                 return;
             }
-
-            if (!int.TryParse(txtActualizarDuracionD.Text, out int destinoDuracionDia))
-            {
-                MessageBox.Show("Duracion en dias invalida. Debes de agregar un numero valido.");
-                txtActualizarDuracionD.Clear();
-                return;
-            }
-
+            
             if (Convert.ToInt32(cmbActualizarDestino.SelectedValue) == 0)
             {
                 MessageBox.Show("Debes de seleccionar un pais valido.");
@@ -195,8 +196,8 @@ namespace ProyectoFinal
             }
 
             destinoActualizar.NombreDestino = txtNombreActualizarD.Text;
-            destinoActualizar.DuracionDias = destinoDuracionDia;
-            destinoActualizar.DuracionHora = destinoDuracionDia * 24;
+            destinoActualizar.DuracionDias = destinoDuracionHora /24;
+            destinoActualizar.DuracionHora = destinoDuracionHora;
             destinoActualizar.PaisId = Convert.ToInt32(cmbActualizarDestino.SelectedValue);
 
             var resultado = _context.SaveChanges();
@@ -206,7 +207,8 @@ namespace ProyectoFinal
                 CargarDestinos();
                 txtActualizarDestinoId.Clear();
                 txtNombreActualizarD.Clear();
-                txtActualizarDuracionD.Clear();
+                txtActualizarDuracionH.Clear();
+                cmbActualizarDestino.SelectedIndex = 0;
             }
 
             else
