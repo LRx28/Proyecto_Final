@@ -319,6 +319,7 @@
             Controls.Add(groupBox1);
             Name = "FrmPais";
             Text = "Pais";
+            Load += FrmPais_Load;
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
             groupBox2.ResumeLayout(false);

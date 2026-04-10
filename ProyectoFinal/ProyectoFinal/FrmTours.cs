@@ -96,6 +96,13 @@ namespace ProyectoFinal
                 return;
             }
 
+            if (Convert.ToInt32(cmbPaisActualizarTour.SelectedValue) == 0)
+            {
+                MessageBox.Show("Debes de selecionar un pais valido para el tour.");
+                return;
+            }
+
+
             var destino = (Destino)cmbDestinoTour.SelectedItem;
 
             var destinoTour = _context.Destinos
@@ -160,14 +167,14 @@ namespace ProyectoFinal
                 NombrePais = "     -- Seleccione un país --"
             });
 
-
-            cmbPaisTour.DataSource = listaPaises;
-            cmbPaisTour.DisplayMember = "NombrePais";
-            cmbPaisTour.ValueMember = "PaisId";
-
             cmbPaisActualizarTour.DataSource = listaPaises;
             cmbPaisActualizarTour.DisplayMember = "NombrePais";
             cmbPaisActualizarTour.ValueMember = "PaisId";
+
+            cmbPaisTour.DataSource = listaPaises;
+            cmbPaisTour.DisplayMember = "NombrePais";   
+            cmbPaisTour.ValueMember = "PaisId";
+
         }
         private void cmbPaisTour_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -293,11 +300,7 @@ namespace ProyectoFinal
 
         }
 
-        private void cmbActualizarDestinoTour_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-
-        }
+        
 
         private void cmbPaisActualizarTour_SelectedIndexChanged(object sender, EventArgs e)
         {

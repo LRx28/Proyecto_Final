@@ -272,7 +272,7 @@
             cmbActualizarDestinoTour.Name = "cmbActualizarDestinoTour";
             cmbActualizarDestinoTour.Size = new Size(252, 31);
             cmbActualizarDestinoTour.TabIndex = 16;
-            cmbActualizarDestinoTour.SelectedIndexChanged += cmbActualizarDestinoTour_SelectedIndexChanged;
+            
             // 
             // label6
             // 
@@ -303,9 +303,9 @@
             label15.ForeColor = Color.White;
             label15.Location = new Point(6, 82);
             label15.Name = "label15";
-            label15.Size = new Size(158, 23);
+            label15.Size = new Size(152, 23);
             label15.TabIndex = 13;
-            label15.Text = "Nombre del Tours:";
+            label15.Text = "Nombre del Tour:";
             // 
             // label5
             // 
@@ -483,7 +483,6 @@
             cmbDestinoTour.Name = "cmbDestinoTour";
             cmbDestinoTour.Size = new Size(252, 31);
             cmbDestinoTour.TabIndex = 11;
-            cmbDestinoTour.Text = "            -- Seleciona --";
             // 
             // label7
             // 
@@ -536,9 +535,9 @@
             label1.ForeColor = Color.White;
             label1.Location = new Point(9, 30);
             label1.Name = "label1";
-            label1.Size = new Size(158, 23);
+            label1.Size = new Size(152, 23);
             label1.TabIndex = 1;
-            label1.Text = "Nombre del Tours:";
+            label1.Text = "Nombre del Tour:";
             // 
             // txtNombreTour
             // 

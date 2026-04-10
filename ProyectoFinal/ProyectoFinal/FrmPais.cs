@@ -229,9 +229,13 @@ namespace ProyectoFinal
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Error al crear el PDF: {ex.Message}"); 
+                MessageBox.Show($"Error al crear el PDF: {ex.Message}");
             }
         }
 
+        private void FrmPais_Load(object sender, EventArgs e)
+        {
+             
+        }
     }
 }
