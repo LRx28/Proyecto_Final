@@ -259,6 +259,7 @@ namespace ProyectoFinal
                 Title = "Guardar como PDF",
                 FileName = "PDF_Destinos.pdf"
             };
+
             try
             {
                 if (sfd.ShowDialog() == DialogResult.OK)
@@ -294,6 +295,7 @@ namespace ProyectoFinal
                         doc.Add(table);
                     }
 
+                       
                     MessageBox.Show("PDF creado correctamente.");
                 }
             }

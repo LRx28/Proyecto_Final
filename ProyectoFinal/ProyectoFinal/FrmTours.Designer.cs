@@ -29,25 +29,29 @@
         private void InitializeComponent()
         {
             groupBox5 = new GroupBox();
-            btn_CsvDestino = new Button();
-            btn_PdfDestino = new Button();
+            btn_CsvTour = new Button();
+            btn_PdfTour = new Button();
             groupBox4 = new GroupBox();
             dgv_Tour = new DataGridView();
             panel1 = new Panel();
             label9 = new Label();
             label10 = new Label();
             groupBox3 = new GroupBox();
+            cmbPaisActualizarTour = new ComboBox();
+            dtp_HoraActualizar = new DateTimePicker();
+            txtPrecioActualizar = new TextBox();
             label12 = new Label();
-            txtActualizarDuracionH = new TextBox();
-            label3 = new Label();
-            cmbActualizarDestino = new ComboBox();
+            label16 = new Label();
+            dtp_FechaActualizar = new DateTimePicker();
             label8 = new Label();
-            txtActualizarDuracionD = new TextBox();
-            label5 = new Label();
-            txtActualizarDestinoId = new TextBox();
-            btnActualizarDestino = new Button();
+            cmbActualizarDestinoTour = new ComboBox();
             label6 = new Label();
-            txtNombreActualizarD = new TextBox();
+            label3 = new Label();
+            label15 = new Label();
+            label5 = new Label();
+            txtActualizarIdTour = new TextBox();
+            btnActualizarTour = new Button();
+            txtNombreActualizarTour = new TextBox();
             groupBox2 = new GroupBox();
             btnEliminarTour = new Button();
             label4 = new Label();
@@ -77,8 +81,8 @@
             // 
             // groupBox5
             // 
-            groupBox5.Controls.Add(btn_CsvDestino);
-            groupBox5.Controls.Add(btn_PdfDestino);
+            groupBox5.Controls.Add(btn_CsvTour);
+            groupBox5.Controls.Add(btn_PdfTour);
             groupBox5.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             groupBox5.ForeColor = Color.White;
             groupBox5.Location = new Point(1141, 18);
@@ -88,36 +92,38 @@
             groupBox5.TabStop = false;
             groupBox5.Text = "Exportar";
             // 
-            // btn_CsvDestino
+            // btn_CsvTour
             // 
-            btn_CsvDestino.BackColor = Color.DarkGreen;
-            btn_CsvDestino.ForeColor = Color.White;
-            btn_CsvDestino.Location = new Point(35, 29);
-            btn_CsvDestino.Name = "btn_CsvDestino";
-            btn_CsvDestino.Size = new Size(105, 45);
-            btn_CsvDestino.TabIndex = 3;
-            btn_CsvDestino.Text = ".CSV";
-            btn_CsvDestino.UseVisualStyleBackColor = false;
+            btn_CsvTour.BackColor = Color.DarkGreen;
+            btn_CsvTour.ForeColor = Color.White;
+            btn_CsvTour.Location = new Point(35, 29);
+            btn_CsvTour.Name = "btn_CsvTour";
+            btn_CsvTour.Size = new Size(105, 45);
+            btn_CsvTour.TabIndex = 3;
+            btn_CsvTour.Text = ".CSV";
+            btn_CsvTour.UseVisualStyleBackColor = false;
+            btn_CsvTour.Click += btn_CsvTour_Click;
             // 
-            // btn_PdfDestino
+            // btn_PdfTour
             // 
-            btn_PdfDestino.BackColor = Color.DarkGreen;
-            btn_PdfDestino.ForeColor = Color.White;
-            btn_PdfDestino.Location = new Point(175, 29);
-            btn_PdfDestino.Name = "btn_PdfDestino";
-            btn_PdfDestino.Size = new Size(105, 45);
-            btn_PdfDestino.TabIndex = 2;
-            btn_PdfDestino.Text = "PDF";
-            btn_PdfDestino.UseVisualStyleBackColor = false;
+            btn_PdfTour.BackColor = Color.DarkGreen;
+            btn_PdfTour.ForeColor = Color.White;
+            btn_PdfTour.Location = new Point(175, 29);
+            btn_PdfTour.Name = "btn_PdfTour";
+            btn_PdfTour.Size = new Size(105, 45);
+            btn_PdfTour.TabIndex = 2;
+            btn_PdfTour.Text = "PDF";
+            btn_PdfTour.UseVisualStyleBackColor = false;
+            btn_PdfTour.Click += btn_PdfTour_Click;
             // 
             // groupBox4
             // 
             groupBox4.Controls.Add(dgv_Tour);
             groupBox4.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             groupBox4.ForeColor = Color.Black;
-            groupBox4.Location = new Point(12, 458);
+            groupBox4.Location = new Point(2, 458);
             groupBox4.Name = "groupBox4";
-            groupBox4.Size = new Size(1450, 335);
+            groupBox4.Size = new Size(1527, 335);
             groupBox4.TabIndex = 15;
             groupBox4.TabStop = false;
             groupBox4.Text = "Select";
@@ -125,10 +131,10 @@
             // dgv_Tour
             // 
             dgv_Tour.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgv_Tour.Location = new Point(15, 23);
+            dgv_Tour.Location = new Point(0, 23);
             dgv_Tour.Name = "dgv_Tour";
             dgv_Tour.RowHeadersWidth = 51;
-            dgv_Tour.Size = new Size(1425, 304);
+            dgv_Tour.Size = new Size(1527, 304);
             dgv_Tour.TabIndex = 0;
             // 
             // panel1
@@ -164,132 +170,181 @@
             // 
             // groupBox3
             // 
+            groupBox3.Controls.Add(cmbPaisActualizarTour);
+            groupBox3.Controls.Add(dtp_HoraActualizar);
+            groupBox3.Controls.Add(txtPrecioActualizar);
             groupBox3.Controls.Add(label12);
-            groupBox3.Controls.Add(txtActualizarDuracionH);
-            groupBox3.Controls.Add(label3);
-            groupBox3.Controls.Add(cmbActualizarDestino);
+            groupBox3.Controls.Add(label16);
+            groupBox3.Controls.Add(dtp_FechaActualizar);
             groupBox3.Controls.Add(label8);
-            groupBox3.Controls.Add(txtActualizarDuracionD);
-            groupBox3.Controls.Add(label5);
-            groupBox3.Controls.Add(txtActualizarDestinoId);
-            groupBox3.Controls.Add(btnActualizarDestino);
+            groupBox3.Controls.Add(cmbActualizarDestinoTour);
             groupBox3.Controls.Add(label6);
-            groupBox3.Controls.Add(txtNombreActualizarD);
+            groupBox3.Controls.Add(label3);
+            groupBox3.Controls.Add(label15);
+            groupBox3.Controls.Add(label5);
+            groupBox3.Controls.Add(txtActualizarIdTour);
+            groupBox3.Controls.Add(btnActualizarTour);
+            groupBox3.Controls.Add(txtNombreActualizarTour);
             groupBox3.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             groupBox3.ForeColor = Color.White;
             groupBox3.Location = new Point(921, 149);
             groupBox3.Name = "groupBox3";
-            groupBox3.Size = new Size(589, 238);
+            groupBox3.Size = new Size(589, 280);
             groupBox3.TabIndex = 12;
             groupBox3.TabStop = false;
             groupBox3.Text = "Update";
+            // 
+            // cmbPaisActualizarTour
+            // 
+            cmbPaisActualizarTour.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            cmbPaisActualizarTour.FormattingEnabled = true;
+            cmbPaisActualizarTour.Location = new Point(131, 115);
+            cmbPaisActualizarTour.Name = "cmbPaisActualizarTour";
+            cmbPaisActualizarTour.Size = new Size(252, 31);
+            cmbPaisActualizarTour.TabIndex = 23;
+            cmbPaisActualizarTour.Text = "            -- Seleciona --";
+            cmbPaisActualizarTour.SelectedIndexChanged += cmbPaisActualizarTour_SelectedIndexChanged;
+            // 
+            // dtp_HoraActualizar
+            // 
+            dtp_HoraActualizar.Format = DateTimePickerFormat.Time;
+            dtp_HoraActualizar.Location = new Point(89, 239);
+            dtp_HoraActualizar.Name = "dtp_HoraActualizar";
+            dtp_HoraActualizar.ShowCheckBox = true;
+            dtp_HoraActualizar.ShowUpDown = true;
+            dtp_HoraActualizar.Size = new Size(129, 30);
+            dtp_HoraActualizar.TabIndex = 22;
+            // 
+            // txtPrecioActualizar
+            // 
+            txtPrecioActualizar.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            txtPrecioActualizar.Location = new Point(322, 236);
+            txtPrecioActualizar.Name = "txtPrecioActualizar";
+            txtPrecioActualizar.Size = new Size(114, 30);
+            txtPrecioActualizar.TabIndex = 21;
             // 
             // label12
             // 
             label12.AutoSize = true;
             label12.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label12.ForeColor = Color.White;
-            label12.Location = new Point(243, 184);
+            label12.Location = new Point(254, 239);
             label12.Name = "label12";
-            label12.Size = new Size(138, 23);
-            label12.TabIndex = 12;
-            label12.Text = "Duracion Horas:";
+            label12.Size = new Size(64, 23);
+            label12.TabIndex = 20;
+            label12.Text = "Precio:";
             // 
-            // txtActualizarDuracionH
+            // label16
             // 
-            txtActualizarDuracionH.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            txtActualizarDuracionH.Location = new Point(384, 183);
-            txtActualizarDuracionH.Name = "txtActualizarDuracionH";
-            txtActualizarDuracionH.Size = new Size(88, 30);
-            txtActualizarDuracionH.TabIndex = 11;
+            label16.AutoSize = true;
+            label16.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label16.ForeColor = Color.White;
+            label16.Location = new Point(23, 240);
+            label16.Name = "label16";
+            label16.Size = new Size(54, 23);
+            label16.TabIndex = 19;
+            label16.Text = "Hora:";
             // 
-            // label3
+            // dtp_FechaActualizar
             // 
-            label3.AutoSize = true;
-            label3.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label3.ForeColor = Color.White;
-            label3.Location = new Point(28, 84);
-            label3.Name = "label3";
-            label3.Size = new Size(116, 23);
-            label3.TabIndex = 10;
-            label3.Text = "Elige un pais:";
-            // 
-            // cmbActualizarDestino
-            // 
-            cmbActualizarDestino.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            cmbActualizarDestino.FormattingEnabled = true;
-            cmbActualizarDestino.Location = new Point(150, 81);
-            cmbActualizarDestino.Name = "cmbActualizarDestino";
-            cmbActualizarDestino.Size = new Size(252, 31);
-            cmbActualizarDestino.TabIndex = 9;
+            dtp_FechaActualizar.Format = DateTimePickerFormat.Short;
+            dtp_FechaActualizar.Location = new Point(79, 198);
+            dtp_FechaActualizar.Name = "dtp_FechaActualizar";
+            dtp_FechaActualizar.Size = new Size(153, 30);
+            dtp_FechaActualizar.TabIndex = 18;
             // 
             // label8
             // 
             label8.AutoSize = true;
             label8.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label8.ForeColor = Color.White;
-            label8.Location = new Point(19, 184);
+            label8.Location = new Point(13, 202);
             label8.Name = "label8";
-            label8.Size = new Size(126, 23);
-            label8.TabIndex = 8;
-            label8.Text = "Duracion Dias:";
+            label8.Size = new Size(60, 23);
+            label8.TabIndex = 17;
+            label8.Text = "Fecha:";
             // 
-            // txtActualizarDuracionD
+            // cmbActualizarDestinoTour
             // 
-            txtActualizarDuracionD.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            txtActualizarDuracionD.Location = new Point(150, 182);
-            txtActualizarDuracionD.Name = "txtActualizarDuracionD";
-            txtActualizarDuracionD.Size = new Size(83, 30);
-            txtActualizarDuracionD.TabIndex = 7;
-            // 
-            // label5
-            // 
-            label5.AutoSize = true;
-            label5.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label5.ForeColor = Color.White;
-            label5.Location = new Point(27, 35);
-            label5.Name = "label5";
-            label5.Size = new Size(99, 23);
-            label5.TabIndex = 4;
-            label5.Text = "ID Destino:";
-            // 
-            // txtActualizarDestinoId
-            // 
-            txtActualizarDestinoId.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            txtActualizarDestinoId.Location = new Point(132, 34);
-            txtActualizarDestinoId.Name = "txtActualizarDestinoId";
-            txtActualizarDestinoId.Size = new Size(204, 30);
-            txtActualizarDestinoId.TabIndex = 3;
-            // 
-            // btnActualizarDestino
-            // 
-            btnActualizarDestino.BackColor = Color.DarkGreen;
-            btnActualizarDestino.ForeColor = Color.White;
-            btnActualizarDestino.Location = new Point(434, 91);
-            btnActualizarDestino.Name = "btnActualizarDestino";
-            btnActualizarDestino.Size = new Size(144, 57);
-            btnActualizarDestino.TabIndex = 2;
-            btnActualizarDestino.Text = "Actualizar";
-            btnActualizarDestino.UseVisualStyleBackColor = false;
+            cmbActualizarDestinoTour.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            cmbActualizarDestinoTour.FormattingEnabled = true;
+            cmbActualizarDestinoTour.Location = new Point(95, 157);
+            cmbActualizarDestinoTour.Name = "cmbActualizarDestinoTour";
+            cmbActualizarDestinoTour.Size = new Size(252, 31);
+            cmbActualizarDestinoTour.TabIndex = 16;
+            cmbActualizarDestinoTour.SelectedIndexChanged += cmbActualizarDestinoTour_SelectedIndexChanged;
             // 
             // label6
             // 
             label6.AutoSize = true;
             label6.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label6.ForeColor = Color.White;
-            label6.Location = new Point(19, 131);
+            label6.Location = new Point(10, 159);
             label6.Name = "label6";
-            label6.Size = new Size(147, 23);
-            label6.TabIndex = 1;
-            label6.Text = "Nombre Destino:";
+            label6.Size = new Size(83, 23);
+            label6.TabIndex = 15;
+            label6.Text = "Destinos:";
             // 
-            // txtNombreActualizarD
+            // label3
             // 
-            txtNombreActualizarD.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            txtNombreActualizarD.Location = new Point(176, 129);
-            txtNombreActualizarD.Name = "txtNombreActualizarD";
-            txtNombreActualizarD.Size = new Size(233, 30);
-            txtNombreActualizarD.TabIndex = 0;
+            label3.AutoSize = true;
+            label3.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label3.ForeColor = Color.White;
+            label3.Location = new Point(10, 118);
+            label3.Name = "label3";
+            label3.Size = new Size(116, 23);
+            label3.TabIndex = 14;
+            label3.Text = "Elige un pais:";
+            // 
+            // label15
+            // 
+            label15.AutoSize = true;
+            label15.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label15.ForeColor = Color.White;
+            label15.Location = new Point(6, 82);
+            label15.Name = "label15";
+            label15.Size = new Size(158, 23);
+            label15.TabIndex = 13;
+            label15.Text = "Nombre del Tours:";
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label5.ForeColor = Color.White;
+            label5.Location = new Point(10, 37);
+            label5.Name = "label5";
+            label5.Size = new Size(74, 23);
+            label5.TabIndex = 4;
+            label5.Text = "ID Tour:";
+            // 
+            // txtActualizarIdTour
+            // 
+            txtActualizarIdTour.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            txtActualizarIdTour.Location = new Point(90, 34);
+            txtActualizarIdTour.Name = "txtActualizarIdTour";
+            txtActualizarIdTour.Size = new Size(81, 30);
+            txtActualizarIdTour.TabIndex = 3;
+            // 
+            // btnActualizarTour
+            // 
+            btnActualizarTour.BackColor = Color.DarkGreen;
+            btnActualizarTour.ForeColor = Color.White;
+            btnActualizarTour.Location = new Point(423, 125);
+            btnActualizarTour.Name = "btnActualizarTour";
+            btnActualizarTour.Size = new Size(144, 57);
+            btnActualizarTour.TabIndex = 2;
+            btnActualizarTour.Text = "Actualizar";
+            btnActualizarTour.UseVisualStyleBackColor = false;
+            btnActualizarTour.Click += btnActualizarTour_Click;
+            // 
+            // txtNombreActualizarTour
+            // 
+            txtNombreActualizarTour.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            txtNombreActualizarTour.Location = new Point(170, 75);
+            txtNombreActualizarTour.Name = "txtNombreActualizarTour";
+            txtNombreActualizarTour.Size = new Size(233, 30);
+            txtNombreActualizarTour.TabIndex = 0;
             // 
             // groupBox2
             // 
@@ -315,6 +370,7 @@
             btnEliminarTour.TabIndex = 2;
             btnEliminarTour.Text = "Eliminar";
             btnEliminarTour.UseVisualStyleBackColor = false;
+            btnEliminarTour.Click += btnEliminarTour_Click;
             // 
             // label4
             // 
@@ -362,10 +418,11 @@
             // dtpHoraTour
             // 
             dtpHoraTour.Format = DateTimePickerFormat.Time;
-            dtpHoraTour.Location = new Point(79, 196);
+            dtpHoraTour.Location = new Point(80, 196);
             dtpHoraTour.Name = "dtpHoraTour";
+            dtpHoraTour.ShowCheckBox = true;
             dtpHoraTour.ShowUpDown = true;
-            dtpHoraTour.Size = new Size(115, 30);
+            dtpHoraTour.Size = new Size(152, 30);
             dtpHoraTour.TabIndex = 17;
             // 
             // txtPrecioTour
@@ -457,9 +514,9 @@
             label2.ForeColor = Color.White;
             label2.Location = new Point(13, 115);
             label2.Name = "label2";
-            label2.Size = new Size(76, 23);
+            label2.Size = new Size(83, 23);
             label2.TabIndex = 4;
-            label2.Text = "Destino:";
+            label2.Text = "Destinos:";
             // 
             // cmbPaisTour
             // 
@@ -524,25 +581,21 @@
         #endregion
 
         private GroupBox groupBox5;
-        private Button btn_CsvDestino;
-        private Button btn_PdfDestino;
+        private Button btn_CsvTour;
+        private Button btn_PdfTour;
         private GroupBox groupBox4;
         private DataGridView dgv_Tour;
         private Panel panel1;
         private Label label9;
         private Label label10;
         private GroupBox groupBox3;
-        private Label label12;
         private TextBox txtActualizarDuracionH;
-        private Label label3;
         private ComboBox cmbActualizarDestino;
-        private Label label8;
         private TextBox txtActualizarDuracionD;
         private Label label5;
-        private TextBox txtActualizarDestinoId;
-        private Button btnActualizarDestino;
-        private Label label6;
-        private TextBox txtNombreActualizarD;
+        private TextBox txtActualizarIdTour;
+        private Button btnActualizarTour;
+        private TextBox txtNombreActualizarTour;
         private GroupBox groupBox2;
         private Button btnEliminarTour;
         private Label label4;
@@ -561,5 +614,16 @@
         private TextBox txtPrecioTour;
         private Label label14;
         private DateTimePicker dtpHoraTour;
+        private ComboBox cmbActualizarDestinoTour;
+        private Label label6;
+        private Label label3;
+        private Label label15;
+        private DateTimePicker dtp_HoraActualizar;
+        private TextBox txtPrecioActualizar;
+        private Label label12;
+        private Label label16;
+        private DateTimePicker dtp_FechaActualizar;
+        private Label label8;
+        private ComboBox cmbPaisActualizarTour;
     }
 }
